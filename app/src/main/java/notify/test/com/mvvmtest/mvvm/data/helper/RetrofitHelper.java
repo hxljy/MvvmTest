@@ -1,4 +1,4 @@
-package notify.test.com.mvvmtest.mvvm.model.api.helper;
+package notify.test.com.mvvmtest.mvvm.data.helper;
 
 
 import okhttp3.OkHttpClient;
@@ -13,7 +13,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 public class RetrofitHelper {
     private final OkHttpClient mClient;
     private Retrofit mRetrofit;
-    public static final String BASE_URL = "";
+    public static final String BASE_URL = "https://news-at.zhihu.com/";
 
     private RetrofitHelper() {
         mClient = OkHttpClientHelper.getInstance().getOkHttpClient();

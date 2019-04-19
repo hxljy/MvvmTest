@@ -5,17 +5,22 @@
     <data>
 
         <variable
-            name="weather"
-            type="notify.test.com.mvvmtest.mvvm.model.bean.Weather" />
+            name="data"
+            type="notify.test.com.mvvmtest.bean.ZhihuData.StoriesBean" />
     </data>
 
 
     <TextView
         android:id="@+id/tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@{weather.name}"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="150dp"
+        android:text="@{data.title}"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+    <View
+        android:background="#e5e5e5"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
 
 </layout>

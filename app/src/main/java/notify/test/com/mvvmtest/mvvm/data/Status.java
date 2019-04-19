@@ -1,4 +1,4 @@
-package notify.test.com.mvvmtest.mvvm.model.api;
+package notify.test.com.mvvmtest.mvvm.data;
 
 /**
  * 数据请求状态
@@ -13,6 +13,11 @@ public enum Status {
      * 加载成功
      */
     SUCCESS,
+
+    /**
+     * 空
+     */
+    EMPTY,
 
     /**
      * 加载失败

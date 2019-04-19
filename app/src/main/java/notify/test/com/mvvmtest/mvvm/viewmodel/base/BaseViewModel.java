@@ -6,7 +6,7 @@ import android.arch.lifecycle.LifecycleObserver;
 import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 
-import notify.test.com.mvvmtest.mvvm.model.api.Status;
+import notify.test.com.mvvmtest.mvvm.data.Status;
 
 /**
  * Created by hxl on 2019/2/19
@@ -29,4 +29,6 @@ public class BaseViewModel extends AndroidViewModel implements LifecycleObserver
 //        super(application);
 //        this.mModel = model;
 //    }
+
+
 }

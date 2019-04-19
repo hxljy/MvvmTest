@@ -1,4 +1,4 @@
-package notify.test.com.mvvmtest.mvvm.model.api.helper;
+package notify.test.com.mvvmtest.mvvm.data.helper;
 
 
 import java.io.IOException;

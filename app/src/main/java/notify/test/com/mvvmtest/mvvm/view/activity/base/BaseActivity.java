@@ -1,6 +1,7 @@
 package notify.test.com.mvvmtest.mvvm.view.activity.base;
 
 import android.arch.lifecycle.LifecycleObserver;
+import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -35,15 +36,19 @@ public abstract class BaseActivity<DB extends ViewDataBinding, VM extends BaseVi
         //设置DataBinding
         mBinding = DataBindingUtil.setContentView(this, setLayoutId());
         Class<VM> entityClass = (Class<VM>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
-        mViewModel = ViewModelProviders.of(this).get(entityClass);
-        getLifecycle().addObserver((LifecycleObserver) mViewModel);
+        mViewModel = ViewModelProviders.of(this, setFactory()).get(entityClass);//viewmodel与view的lifecycle绑定起来
+        getLifecycle().addObserver((LifecycleObserver) mViewModel);//viewmodel获取view的lifecycle
 
         initView();
         initData();
     }
 
     public abstract int setLayoutId();
+
+    public abstract ViewModelProvider.Factory setFactory();
+
     public abstract void initView();
+
     public abstract void initData();
 
     @Override

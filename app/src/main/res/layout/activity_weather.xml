@@ -2,18 +2,20 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="notify.test.com.mvvmtest.mvvm.view.activity.WeatherActivity">
+    tools:context="notify.test.com.mvvmtest.mvvm.view.activity.ZhiHuActivity">
 
     <data>
+
         <variable
             name="vm"
-            type="notify.test.com.mvvmtest.mvvm.viewmodel.WeatherViewModel" />
+            type="notify.test.com.mvvmtest.mvvm.viewmodel.ZhiHuViewModel" />
     </data>
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/srl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:refreshing="@{vm.STATUS == Status.LOADING}">
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv"
