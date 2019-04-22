@@ -2,6 +2,7 @@ package notify.test.com.mvvmtest.mvvm.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.MutableLiveData;
+import android.databinding.ObservableField;
 import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
@@ -16,6 +17,7 @@ import notify.test.com.mvvmtest.bean.ZhihuData;
 import notify.test.com.mvvmtest.mvvm.data.DataRepository;
 import notify.test.com.mvvmtest.mvvm.data.Status;
 import notify.test.com.mvvmtest.mvvm.viewmodel.base.BaseViewModel;
+import notify.test.com.mvvmtest.utils.log.Log;
 
 /**
  * Created by hxl on 2019/2/19
@@ -23,7 +25,9 @@ import notify.test.com.mvvmtest.mvvm.viewmodel.base.BaseViewModel;
 
 public class ZhiHuViewModel extends BaseViewModel {
 
-    int index = 20190301;
+//    private int index = 20190301;
+    public ObservableField<Integer> index=new ObservableField<>(20190301);
+
 
     private MutableLiveData<List<ZhihuData.StoriesBean>> zhihuList = new MutableLiveData<>();
 //    public MutableLiveData<List<Weather>> newData = new MutableLiveData<>();
@@ -35,8 +39,9 @@ public class ZhiHuViewModel extends BaseViewModel {
     }
 
 
-    public void getData() {
-        DataRepository.getZhiHuList(index)
+    public void getData(final boolean isRefresh) {
+        Log.e("getData-" + index.get());
+        DataRepository.getZhiHuList(index.get())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<String>() {
@@ -50,16 +55,26 @@ public class ZhiHuViewModel extends BaseViewModel {
                         Gson gson = new Gson();
                         ZhihuData zhihuData = gson.fromJson(s, ZhihuData.class);
 
-                        if ((zhihuData.getStories() == null || zhihuData.getStories().size() == 0) && index == 20190301) {
-
+                        //为空
+                        if (zhihuData.getStories().size() == 0 && index.get() == 20190301) {
+                            getStatus().setValue(new Status(Status.State.EMPTY));
+                            return;
+                        }
+                        if (isRefresh) {
+                            getStatus().setValue(new Status(Status.State.REFRESH));
                         }
                         zhihuList.setValue(zhihuData.getStories());
-                        STATUS.set(Status.SUCCESS);
+                        //是否到最后
+                        if (index.get() == 20190310) {
+                            getStatus().setValue(new Status(Status.State.SUCCESS, true));
+                        } else {
+                            getStatus().setValue(new Status(Status.State.SUCCESS, false));
+                        }
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        STATUS.set(Status.ERROR);
+                        getStatus().setValue(new Status(Status.State.ERROR, "错误了"));
                     }
 
                     @Override
@@ -70,13 +85,13 @@ public class ZhiHuViewModel extends BaseViewModel {
     }
 
     public void refresh() {
-        index = 20190301;
-        getData();
+        index.set(20190301);
+        getData(true);
     }
 
     public void loadMore() {
-        index++;
-        getData();
+        index.set(index.get()+1);
+        getData(false);
     }
 
 

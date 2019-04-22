@@ -11,18 +11,30 @@
             type="notify.test.com.mvvmtest.mvvm.viewmodel.ZhiHuViewModel" />
     </data>
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/srl"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:refreshing="@{vm.STATUS == Status.LOADING}">
+        android:orientation="vertical">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv"
+
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="@{String.valueOf(vm.index),default=999}" />
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/srl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
 
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+    </LinearLayout>
 </layout>
