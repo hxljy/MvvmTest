@@ -44,7 +44,10 @@ public class ZhiHuActivity extends BaseActivity<ActivityWeatherBinding, ZhiHuVie
 
         emptyView = getLayoutInflater().inflate(R.layout.layout_empty_view, (ViewGroup) mBinding.rv.getParent(), false);
         errorView = getLayoutInflater().inflate(R.layout.tips_loading_failed, (ViewGroup) mBinding.rv.getParent(), false);
-        errorView.findViewById(R.id.btn_refresh).setOnClickListener(v -> mViewModel.refresh());
+        errorView.findViewById(R.id.btn_refresh).setOnClickListener(v -> {
+            showLoading();
+            mViewModel.refresh();
+        });
 
 
         zhiHuAdapter.setOnLoadMoreListener(() -> {
@@ -84,6 +87,7 @@ public class ZhiHuActivity extends BaseActivity<ActivityWeatherBinding, ZhiHuVie
                             break;
                         case ERROR:
                             Log.e("ERROR");
+                            zhiHuAdapter.setNewData(null);
                             zhiHuAdapter.setEmptyView(errorView);
                             break;
                         case REFRESH:
@@ -97,7 +101,7 @@ public class ZhiHuActivity extends BaseActivity<ActivityWeatherBinding, ZhiHuVie
         );
 
         showLoading();
-        mViewModel.getData(true);
+        mViewModel.refresh();
     }
 
     public void showLoading() {
