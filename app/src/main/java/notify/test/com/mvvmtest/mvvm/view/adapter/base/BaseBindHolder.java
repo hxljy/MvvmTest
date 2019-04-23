@@ -1,6 +1,6 @@
 package notify.test.com.mvvmtest.mvvm.view.adapter.base;
 
-import android.databinding.ViewDataBinding;
+import androidx.databinding.ViewDataBinding;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseViewHolder;

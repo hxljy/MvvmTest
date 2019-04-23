@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide;
 
 public class BindingAdapter {
 
-    @android.databinding.BindingAdapter({"url"})
+    @androidx.databinding.BindingAdapter({"url"})
     public static void setImageUrl(ImageView iv, String url) {
         Glide.with(iv.getContext())
                 .load(url)

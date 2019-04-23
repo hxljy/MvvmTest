@@ -1,10 +1,10 @@
 package notify.test.com.mvvmtest.mvvm.viewmodel.base;
 
 import android.app.Application;
-import android.arch.lifecycle.AndroidViewModel;
-import android.arch.lifecycle.LifecycleObserver;
-import android.arch.lifecycle.MutableLiveData;
-import android.support.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.MutableLiveData;
+import androidx.annotation.NonNull;
 
 import notify.test.com.mvvmtest.mvvm.data.Status;
 

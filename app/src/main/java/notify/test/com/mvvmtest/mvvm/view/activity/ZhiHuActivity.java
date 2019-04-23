@@ -1,10 +1,11 @@
 package notify.test.com.mvvmtest.mvvm.view.activity;
 
-import android.arch.lifecycle.ViewModelProvider;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import notify.test.com.mvvmtest.R;
 import notify.test.com.mvvmtest.databinding.ActivityWeatherBinding;

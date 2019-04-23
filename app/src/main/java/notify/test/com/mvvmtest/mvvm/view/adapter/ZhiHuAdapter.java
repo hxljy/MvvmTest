@@ -1,9 +1,8 @@
 package notify.test.com.mvvmtest.mvvm.view.adapter;
 
-import android.databinding.ViewDataBinding;
-import android.support.annotation.Nullable;
-
-import com.android.databinding.library.baseAdapters.BR;
+import androidx.annotation.Nullable;
+import androidx.databinding.ViewDataBinding;
+import androidx.databinding.library.baseAdapters.BR;
 
 import java.util.List;
 
