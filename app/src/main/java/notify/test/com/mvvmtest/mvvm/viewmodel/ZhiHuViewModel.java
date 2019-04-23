@@ -2,7 +2,7 @@ package notify.test.com.mvvmtest.mvvm.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.MutableLiveData;
-import android.databinding.ObservableField;
+import android.databinding.ObservableInt;
 import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
@@ -25,8 +25,8 @@ import notify.test.com.mvvmtest.utils.log.Log;
 
 public class ZhiHuViewModel extends BaseViewModel {
 
-//    private int index = 20190301;
-    public ObservableField<Integer> index=new ObservableField<>(20190301);
+    //    private int index = 20190301;
+    public ObservableInt index = new ObservableInt(20190301);
 
 
     private MutableLiveData<List<ZhihuData.StoriesBean>> zhihuList = new MutableLiveData<>();
@@ -90,7 +90,7 @@ public class ZhiHuViewModel extends BaseViewModel {
     }
 
     public void loadMore() {
-        index.set(index.get()+1);
+        index.set(index.get() + 1);
         getData(false);
     }
 

@@ -12,6 +12,10 @@
         <variable
             name="activity"
             type="notify.test.com.mvvmtest.Test.DataBindingActivity"/>
+        
+        <variable
+            name="index"
+            type="android.databinding.ObservableInt" />
     </data>
 
     <LinearLayout

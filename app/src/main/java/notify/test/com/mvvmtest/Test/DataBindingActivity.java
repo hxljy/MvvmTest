@@ -1,6 +1,7 @@
 package notify.test.com.mvvmtest.Test;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableInt;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,6 +14,8 @@ public class DataBindingActivity extends AppCompatActivity {
 
     private ActivityDataBindingBinding binding;
     People people = new People();
+
+    ObservableInt index=new ObservableInt(10);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
