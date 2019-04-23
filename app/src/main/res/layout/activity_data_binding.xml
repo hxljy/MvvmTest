@@ -2,20 +2,17 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="notify.test.com.mvvmtest.Test.DataBindingActivity">
+    tools:context="notify.test.com.mvvmtest.test.DataBindingActivity">
 
     <data>
 
         <variable
             name="people"
-            type="notify.test.com.mvvmtest.Test.People" />
+            type="notify.test.com.mvvmtest.test.People" />
         <variable
             name="activity"
-            type="notify.test.com.mvvmtest.Test.DataBindingActivity"/>
+            type="notify.test.com.mvvmtest.test.DataBindingActivity"/>
         
-        <variable
-            name="index"
-            type="android.databinding.ObservableInt" />
     </data>
 
     <LinearLayout

@@ -1,4 +1,4 @@
-package notify.test.com.mvvmtest.Test;
+package notify.test.com.mvvmtest.test;
 
 /**
  * Created by hxl on 2019/2/18

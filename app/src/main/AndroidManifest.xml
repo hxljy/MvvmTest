@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity android:name=".Test.DataBindingActivity">
+        <activity android:name=".test.DataBindingActivity">
 
         </activity>
         <activity android:name=".mvvm.view.activity.ZhiHuActivity">
